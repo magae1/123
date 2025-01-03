@@ -2,9 +2,12 @@ name: workflow.yml
 on: push
 
 jobs:
-  - name: Slack Notification
-    uses: tokorom/action-slack-incoming-webhook@main
-    env:
-      INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
-    with:
-      text: Hello, Slack!
+  slack_notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Notification
+        uses: tokorom/action-slack-incoming-webhook@main
+        env:
+          INCOMING_WEBHOOK_URL: https://hooks.slack.com/services/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
+        with:
+          text: Hello, Slack!
